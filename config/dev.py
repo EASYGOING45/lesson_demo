@@ -14,6 +14,8 @@ from config import RUN_VER
 from config.default import FRONTEND_BACKEND_SEPARATION
 from blueapps.conf.validators import EnvValidator
 
+import pymysql
+pymysql.install_as_MySQLdb()
 
 EnvValidator(RUN_VER).validate()
 
@@ -45,13 +47,13 @@ DEBUG = True
 
 # 本地开发数据库设置
 # USE FOLLOWING SQL TO CREATE THE DATABASE NAMED APP_CODE
-# SQL: CREATE DATABASE `framework_py` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; # noqa: E501
+# SQL: CREATE DATABASE `lesson11` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; # noqa: E501
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": APP_CODE,  # noqa
+        "NAME": "lesson11",  # noqa
         "USER": "root",
-        "PASSWORD": "",
+        "PASSWORD": "huan0912",
         "HOST": "localhost",
         "PORT": "3306",
     },

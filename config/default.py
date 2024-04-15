@@ -33,6 +33,7 @@ from blueapps.conf.log import get_logging_config_dict
 
 # 请在这里加入你的自定义 APP
 INSTALLED_APPS += (  # noqa
+    "corsheaders",
     "home_application",
     "mako_application",
 )
@@ -62,8 +63,14 @@ INSTALLED_APPS += (  # noqa
 #     'django.middleware.locale.LocaleMiddleware',
 # )
 
+# 跨域中间件
+MIDDLEWARE = ("corsheaders.middleware.CorsMiddleware",) + MIDDLEWARE
 # 自定义中间件
 MIDDLEWARE += ()  # noqa
+
+CORS_ALLOW_ALL_ORIGINS = True
+# 在 response 添加 Access-Control-Allow-Credentials, 即允许跨域使用 cookies
+CORS_ALLOW_CREDENTIALS = True
 
 # 默认数据库AUTO字段类型
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
